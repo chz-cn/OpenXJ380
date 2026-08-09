@@ -37,6 +37,9 @@ jobs:
         with:
           languages: cpp
           build-mode: manual
+          queries: |
+            security-and-quality
+            security-extended
 
       - name: Generate Ninja build file
         run: python3 tools/gen_ninja.py --out build.ninja
@@ -48,6 +51,3 @@ jobs:
         uses: github/codeql-action/analyze@v4
         with:
           category: "/language:cpp"
-          queries: |
-            security-and-quality
-            security-extended
